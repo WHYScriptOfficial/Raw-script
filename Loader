@@ -2,6 +2,7 @@ local Place = "https://raw.githubusercontent.com/WHYScriptOfficial/Raw-script/ma
 local loader = {
     places = {
         ["Studio Lite"] = 10959918411,
+        ["Hyper Draw"] =  118868556321211,
     },
 }
 
