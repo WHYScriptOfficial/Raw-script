@@ -1,0 +1,28 @@
+local Place = "https://raw.githubusercontent.com/WHYScriptOfficial/Raw-script/main/Place/"
+local loader = {
+    places = {
+        ["Studio Lite"] = 10959918411,
+    },
+}
+
+local placeId
+for name, id in pairs(loader.places) do
+    if id == game.PlaceId then
+        placeId = id
+        break
+    end
+end
+if not placeId then return end
+
+local address = Place .. tostring(placeId)
+local fetched, body = pcall(function()
+    return game:HttpGet(address)
+end)
+
+if fetched and type(body) == "string" and body ~= "" then
+    local launch, message = loadstring(body)
+    assert(launch, message)
+    return launch()
+end
+
+warn("Failed to load script. Please try again.")
